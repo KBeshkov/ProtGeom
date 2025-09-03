@@ -1,5 +1,3 @@
-from persim import gromov_hausdorff, plot_diagrams
-from ripser import ripser as tda
 from sklearn.metrics import pairwise_distances
 import numpy as np
 
@@ -53,17 +51,6 @@ class MetricSpaceComparison:
                 contact_map[i, neighbors] = 1
             contact_maps.append(contact_map)
         return contact_maps
-
-    def compute_gromov_hausdorff_filtration(self):
-        """Compute the Gromov-Hausdorff distance between all pairs of proteins for each epsilon in the filtration."""
-        GH_distances = [[] for _ in range(len(self.epsilon_filtration))]
-        dmats_1, dmats_2 = self.euclidean_metric()
-        for i, epsilon in enumerate(self.epsilon_filtration):
-            contact_maps_1 = self.epsilon_metric(dmats_1, epsilon)
-            contact_maps_2 = self.epsilon_metric(dmats_2, epsilon)
-            for j in range(len(self.pclouds_1)):
-                GH_distances[i].append(gromov_hausdorff(contact_maps_1[j], contact_maps_2[j]))
-        return GH_distances
     
     def compute_Hamming_filtration(self):
         """Compute the graph filtration for each point cloud in both metric spaces."""

@@ -1,5 +1,3 @@
-import torch
-import matplotlib.pyplot as plt
 import esm
 import numpy as np
 import sys
@@ -8,7 +6,7 @@ from Bio import PDB
 
 from os import walk
 import pickle
-prot_dir = '../data/pdbs/'
+prot_dir = './data/pdbs/'
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
 
@@ -63,7 +61,10 @@ for n,mod in enumerate(models):
                             coords_esm_space[l].append(original)
                 except:
                     continue
-        with open('../data/reps/coords_space'+model_names[n]+'_'+sub+'.pickle', 'wb') as f:
-            pickle.dump(coords_space, f)
-        with open('../data/reps/coords_esm_space'+model_names[n]+'_'+sub+'.pickle', 'wb') as f:
-            pickle.dump(coords_esm_space, f)
+        count += 1
+    with open('./data/reps/coords_space.pickle', 'wb') as f:
+        pickle.dump(coords_space, f)
+    with open('./data/reps/coords_esm_space'+model_names[n]+'_'+'.pickle', 'wb') as f:
+        pickle.dump(coords_esm_space, f)
+    with open('./data/reps/prot_labels.pickle','wb') as f:
+        pickle.dump(prot_labels, f)
