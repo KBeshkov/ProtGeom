@@ -3,25 +3,26 @@ import numpy as np
 import sys
 sys.path.append("../src/")
 from Bio import PDB
-
+from tqdm import tqdm
+import multiprocessing
 from os import walk
 import pickle
-prot_dir = './data/pdbs/'
+prot_dir = '../data/pdbs/'
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
-
-model_names = ['esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
-               'esm2_t30_150M_UR50D','esm2_t33_650M_UR50D']
-models = [esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
-          esm.pretrained.esm2_t30_150M_UR50D,esm.pretrained.esm2_t33_650M_UR50D]
+subfolders = subfolders[-1]
+model_names = ['esm2_t33_650M_UR50D']#'esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
+               #'esm2_t30_150M_UR50D','esm2_t33_650M_UR50D']
+models = [esm.pretrained.esm2_t33_650M_UR50D]#esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
+          #esm.pretrained.esm2_t30_150M_UR50D,esm.pretrained.esm2_t33_650M_UR50D]
 
 d3to1 = {'CYS': 'C', 'ASP': 'D', 'SER': 'S', 'GLN': 'Q', 'LYS': 'K',
 'ILE': 'I', 'PRO': 'P', 'THR': 'T', 'PHE': 'F', 'ASN': 'N', 
 'GLY': 'G', 'HIS': 'H', 'LEU': 'L', 'ARG': 'R', 'TRP': 'W', 
 'ALA': 'A', 'VAL':'V', 'GLU': 'E', 'TYR': 'Y', 'MET': 'M'}
 
-for n,mod in enumerate(models):
-    model_esm, alphabet = mod()
+def run_model(model,model_name='none'):
+    model_esm, alphabet = model()
     model_esm.eval()
     batch_converter = alphabet.get_batch_converter()
 
@@ -35,7 +36,7 @@ for n,mod in enumerate(models):
         filenames = next(walk(prot_dir+sub+'/'), (None, None, []))[2] 
         valid_filenames = []
         print(sub)
-        for fname in filenames:
+        for fname in tqdm(filenames):
             if fname[-3:]=='cif':
                 parser = PDB.MMCIFParser(QUIET=True)
                 structure = parser.get_structure("protein", prot_dir+sub+'/'+fname)      
@@ -62,9 +63,19 @@ for n,mod in enumerate(models):
                 except:
                     continue
         count += 1
-    with open('./data/reps/coords_space.pickle', 'wb') as f:
-        pickle.dump(coords_space, f)
-    with open('./data/reps/coords_esm_space'+model_names[n]+'_'+'.pickle', 'wb') as f:
-        pickle.dump(coords_esm_space, f)
-    with open('./data/reps/prot_labels.pickle','wb') as f:
-        pickle.dump(prot_labels, f)
+    #with open('../data/reps/coords_space.pickle', 'wb') as f:
+    #    pickle.dump(coords_space, f)
+        with open('../data/reps/coords_esm_space_'+model_name+'_3'+'.pickle', 'wb') as f:
+            pickle.dump(coords_esm_space, f)        
+    #with open('../data/reps/prot_labels.pickle','wb') as f:
+     #   pickle.dump(prot_labels, f)
+
+if __name__=="__main__":
+    processes = []
+    for n,mod in enumerate(models):
+        p = multiprocessing.Process(target=run_model,args=(mod,model_names[n]))
+        processes.append(p)
+        p.start()
+    for p in processes:
+        p.join()
+
