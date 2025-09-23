@@ -10,7 +10,7 @@ def scopcla_to_dict(file):
     df = pd.read_csv(file, delim_whitespace=True, header=None, names=column_names)
     return df
 
-def sample_class(class_id, n_samples=3):
+def sample_class(class_id, n_samples=200):
     scop_dict = scopcla_to_dict("../data/dir.cla.scope.txt")
     class_entries = scop_dict['SCOPe class'].str.startswith(class_id).values
     pdb_entries = scop_dict['PDB_ID'].values[class_entries]

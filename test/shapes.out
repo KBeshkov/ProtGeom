@@ -1,0 +1,10 @@
+nohup: ignoring input
+  0%|          | 0/33 [00:00<?, ?it/s]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+  3%|▎         | 1/33 [34:43<18:31:02, 2083.19s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+  6%|▌         | 2/33 [1:05:58<16:53:12, 1961.04s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+  9%|▉         | 3/33 [1:38:17<16:15:27, 1950.93s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+ 12%|█▏        | 4/33 [2:08:21<15:14:52, 1892.83s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+ 15%|█▌        | 5/33 [2:37:05<14:14:54, 1831.95s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+ 18%|█▊        | 6/33 [3:05:56<13:28:54, 1797.56s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+ 21%|██        | 7/33 [3:34:30<12:47:09, 1770.35s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle
+ 24%|██▍       | 8/33 [4:04:20<12:20:12, 1776.51s/it]coords_esm_space_esm2_t33_650M_UR50D_k.pickle

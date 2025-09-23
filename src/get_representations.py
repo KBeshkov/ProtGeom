@@ -10,7 +10,7 @@ import pickle
 prot_dir = '../data/pdbs/'
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
-subfolders = subfolders[-1]
+#subfolders = subfolders
 model_names = ['esm2_t33_650M_UR50D']#'esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
                #'esm2_t30_150M_UR50D','esm2_t33_650M_UR50D']
 models = [esm.pretrained.esm2_t33_650M_UR50D]#esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
@@ -33,6 +33,7 @@ def run_model(model,model_name='none'):
     
     
     for sub in subfolders:
+        print(sub)
         filenames = next(walk(prot_dir+sub+'/'), (None, None, []))[2] 
         valid_filenames = []
         print(sub)
@@ -65,7 +66,7 @@ def run_model(model,model_name='none'):
         count += 1
     #with open('../data/reps/coords_space.pickle', 'wb') as f:
     #    pickle.dump(coords_space, f)
-        with open('../data/reps/coords_esm_space_'+model_name+'_3'+'.pickle', 'wb') as f:
+        with open('../data/reps/coords_esm_space_'+model_name+'_'+sub+'.pickle', 'wb') as f:
             pickle.dump(coords_esm_space, f)        
     #with open('../data/reps/prot_labels.pickle','wb') as f:
      #   pickle.dump(prot_labels, f)
