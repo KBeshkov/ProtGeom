@@ -13,14 +13,15 @@ from sklearn.manifold import MDS
 from tqdm import tqdm
 
 class ShapeAnalysis:
-    def __init__(self,res=1000,id=0):
+    def __init__(self,res=1000,spline_order=2,id=0):
         self.res = res
         self.domain = np.linspace(0,1,self.res)
+        self.spline_order = spline_order
         self.id = id
     
     def interpolate_curve(self, y):
         t = np.linspace(0,1,len(y))
-        b_t = make_interp_spline(t, y,k=2)
+        b_t = make_interp_spline(t, y,k=self.spline_order)
         return b_t
     
     def apply_transforms_curve(self,y):
