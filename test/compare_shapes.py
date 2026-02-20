@@ -17,10 +17,12 @@ prot_dir = '../data/pdbs/'
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
 
-SA = ShapeAnalysis()
-model_names = ['esm2_t33_650M_UR50D']# ['esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
+n_res = [1000,1000,500,1500]
+sp_order = [2,3,2,2]
+#SA = ShapeAnalysis(res=n_res,spline_order=sp_order,id=0)
+model_names = ['esm2_t12_35M_UR50D','esm2_t12_35M_UR50D','esm2_t12_35M_UR50D','esm2_t12_35M_UR50D']#,'esm2_t12_35M_UR50D',
                #'esm2_t30_150M_UR50D']#,'esm2_t33_650M_UR50D']
-models = [esm.pretrained.esm2_t33_650M_UR50D]#[esm.pretrained.esm2_t6_8M_UR50D, esm.pretrained.esm2_t12_35M_UR50D,
+models = [esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D]#, esm.pretrained.esm2_t12_35M_UR50D,
           #esm.pretrained.esm2_t30_150M_UR50D]#,esm.pretrained.esm2_t33_650M_UR50D]
 dmats = [[] for _ in range(len(models))]
 frechet_radii = [[] for _ in range(len(models))]
@@ -28,23 +30,30 @@ max_raidii = [[] for _ in range(len(models))]
 effective_dims = [[] for _ in range(len(models))]
 colormap = colormaps['tab10']
 
+
 with open('../data/reps/coords_space.pickle','rb') as f:
     coords_space = pickle.load(f)
 with open('../data/reps/prot_labels.pickle','rb') as f:
     prot_labels = pickle.load(f)
 
-SA.init_shape_space(coords_space)
-effective_dim_coords = effective_dim_SRV(coords_space, SA)
-frechet_radius_coords = frechet_radius(coords_space, SA)[1]
+#SA.init_shape_space(coords_space)
+#effective_dim_coords = effective_dim_SRV(coords_space, SA)
+#frechet_radius_coords = frechet_radius(coords_space, SA)[1]
 def run_model(placeholder=0):
     for n, mod in enumerate(models):
+        SA = ShapeAnalysis(res = n_res[n], spline_order=sp_order[n], id = n)
+        SA.init_shape_space(coords_space)
+        effective_dim_coords = effective_dim_SRV(coords_space, SA)
+        frechet_radius_coords = frechet_radius(coords_space, SA)[1]
         n_layers = mod()[0].num_layers
-        coords_esm_space = [[] for i in range(n_layers)]
+        with open('../data/reps/coords_esm_space_'+model_names[n]+'_.pickle','rb') as f:
+            coords_esm_space = pickle.load(f)
+        #coords_esm_space = [[] for i in range(n_layers)]
         #dmats[n] = [np.zeros([len(prot_labels),len(prot_labels)]) for _ in range(n_layers)]
         shape_spaces = []
         for layer in tqdm(range(n_layers)):
-            coords_esm_space[layer] = load_representations(model_names[n]+'_k',layer)
-            new_shape_space = ShapeAnalysis(id=layer)
+            #coords_esm_space[layer] = load_representations(model_names[n]+'_k',layer)
+            new_shape_space = ShapeAnalysis(res=n_res[n],spline_order=sp_order[n],id=(n+1)*100+layer)
             new_shape_space.init_shape_space(coords_esm_space[layer])
             shape_spaces.append(new_shape_space)
             effective_dims[n].append(effective_dim_SRV(coords_esm_space[layer], shape_spaces[layer]))
@@ -64,7 +73,9 @@ def run_model(placeholder=0):
         ax[1].grid('on')
         ax[1].set_title('Frechet Radius')
         fig.tight_layout()
-        fig.savefig('../figures/shape_summary_'+model_names[n]+'.png',dpi=300)
+        #fig.savefig('../figures/shape_summary_'+model_names[n]+'_order_2_.png',dpi=300)
+        np.save(f'../data/eff_dim_{n_res[n]}_{sp_order[n]}.npy',effective_dims[n])
+        np.save(f'../data/frechet_rad_{n_res[n]}_{sp_order[n]}.npy', frechet_radii[n])
         print('Figure saved')
 
 if __name__=="__main__":
