@@ -3,13 +3,11 @@ import matplotlib.pyplot as plt
 from matplotlib import colormaps
 import esm
 import numpy as np
-import sys
-sys.path.append("../src/")
-from dynamic_rep_loading import load_representations
+from protgeom.tools.dynamic_rep_loading import load_representations
 import multiprocessing
 from Bio import PDB
 from tqdm import tqdm
-from MetricComparison import MetricSpaceComparison
+from protgeom.MetricComparison import MetricSpaceComparison
 from os import walk
 import pickle
 from scipy import stats

@@ -3,9 +3,7 @@ from matplotlib import colormaps
 from sklearn.decomposition import PCA
 import esm
 import numpy as np
-import sys
-sys.path.append("../src/")
-from ShapeAnalysis import *
+from protgeom.ShapeAnalysis import *
 from Bio import PDB
 from os import walk
 import pickle

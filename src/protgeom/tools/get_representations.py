@@ -1,19 +1,20 @@
 import esm
 import numpy as np
-import sys
-sys.path.append("../src/")
+from pathlib import Path
+current_file = Path(__file__).resolve()
+root_dir = current_file.parent.parent.parent.parent
 from Bio import PDB
 from tqdm import tqdm
 import multiprocessing
 from os import walk
 import pickle
-prot_dir = '../data/pdbs/'
+prot_dir = root_dir / "data" / "pdbs"
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
 #subfolders = subfolders
-model_names = ['esm2_t33_650M_UR50D']#'esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
+model_names = ['esm2_t6_8M_UR50D']#'esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
                #'esm2_t30_150M_UR50D','esm2_t33_650M_UR50D']
-models = [esm.pretrained.esm2_t33_650M_UR50D]#esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
+models = [esm.pretrained.esm2_t6_8M_UR50D]#esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
           #esm.pretrained.esm2_t30_150M_UR50D,esm.pretrained.esm2_t33_650M_UR50D]
 
 d3to1 = {'CYS': 'C', 'ASP': 'D', 'SER': 'S', 'GLN': 'Q', 'LYS': 'K',
@@ -34,13 +35,13 @@ def run_model(model,model_name='none'):
     
     for sub in subfolders:
         print(sub)
-        filenames = next(walk(prot_dir+sub+'/'), (None, None, []))[2] 
+        filenames = next(walk(prot_dir/sub), (None, None, []))[2] 
         valid_filenames = []
         print(sub)
         for fname in tqdm(filenames):
             if fname[-3:]=='cif':
                 parser = PDB.MMCIFParser(QUIET=True)
-                structure = parser.get_structure("protein", prot_dir+sub+'/'+fname)      
+                structure = parser.get_structure("protein", prot_dir/sub/fname)      
                 protein = ''
                 coords = []
                 prot_ids = []
@@ -66,7 +67,7 @@ def run_model(model,model_name='none'):
         count += 1
     #with open('../data/reps/coords_space.pickle', 'wb') as f:
     #    pickle.dump(coords_space, f)
-        with open('../data/reps/coords_esm_space_'+model_name+'_'+sub+'.pickle', 'wb') as f:
+        with open(root_dir/"reps"/f"coords_esm_space_{model_name}_{sub}.pickle", 'wb') as f:
             pickle.dump(coords_esm_space, f)        
     #with open('../data/reps/prot_labels.pickle','wb') as f:
      #   pickle.dump(prot_labels, f)

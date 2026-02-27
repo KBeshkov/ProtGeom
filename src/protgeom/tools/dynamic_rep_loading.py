@@ -2,9 +2,13 @@ import pickle
 import numpy as np
 from os import walk
 import gc
+from pathlib import Path
+current_file = Path(__file__).resolve()
+root_dir = current_file.parent.parent.parent.parent
+
 
 def load_representations(model_name, layer):
-    filepath = '../data/reps/'   
+    filepath = root_dir / "data" / "reps"
     files = next(walk(filepath))[2]
     model_files = [f for f in files if model_name in f]
     reps = []

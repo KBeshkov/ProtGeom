@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
-import sys
-sys.path.append("../src/")
-
+from pathlib import Path
+current_file = Path(__file__).resolve()
+root_dir = current_file.parent.parent.parent.parent
 
 def scopcla_to_dict(file):
     column_names = ["SID", "PDB_ID", "Chain_ID", "SCOPe class", "SUNID", "misc"]
@@ -10,8 +10,9 @@ def scopcla_to_dict(file):
     df = pd.read_csv(file, delim_whitespace=True, header=None, names=column_names)
     return df
 
-def sample_class(class_id, n_samples=200):
-    scop_dict = scopcla_to_dict("../data/dir.cla.scope.txt")
+def sample_class(class_id, n_samples=2):
+    data_file = root_dir / "data" / "dir.cla.scope.txt"
+    scop_dict = scopcla_to_dict(data_file)
     class_entries = scop_dict['SCOPe class'].str.startswith(class_id).values
     pdb_entries = scop_dict['PDB_ID'].values[class_entries]
     if n_samples == 0:
@@ -21,7 +22,7 @@ def sample_class(class_id, n_samples=200):
 
 from Bio.PDB import PDBList
 
-def download_pdbs(pdb_ids, out_dir="../data/pdbs", file_format="mmCif",subfolder='a'):
+def download_pdbs(pdb_ids, out_dir=root_dir / "data" / "pdbs", file_format="mmCif",subfolder='a'):
     """
     Downloads PDB files from RCSB using Biopython.
     
@@ -32,7 +33,7 @@ def download_pdbs(pdb_ids, out_dir="../data/pdbs", file_format="mmCif",subfolder
     """
     pdbl = PDBList(server="https://files.rcsb.org")
     for pdb_id in pdb_ids:
-        pdbl.retrieve_pdb_file(pdb_id, pdir=out_dir+'/'+subfolder, file_format=file_format, overwrite=True)
+        pdbl.retrieve_pdb_file(pdb_id, pdir=out_dir / subfolder, file_format=file_format, overwrite=True)
         
 if __name__ == '__main__':
     prot_classes = ['a','b','c','d','e','f','g','k']

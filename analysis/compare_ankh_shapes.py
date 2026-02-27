@@ -4,11 +4,9 @@ import matplotlib.patches as patches
 from matplotlib import colormaps
 import ankh
 import numpy as np
-import sys
-sys.path.append("../src/")
-from dynamic_rep_loading import load_representations
+from protgeom.tools.dynamic_rep_loading import load_representations
 from Bio import PDB
-from ShapeAnalysis import *
+from protgeom.ShapeAnalysis import *
 import multiprocessing
 from os import walk
 import pickle
