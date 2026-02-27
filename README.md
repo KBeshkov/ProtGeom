@@ -1,4 +1,6 @@
-<img src="assets/banner.png" alt="Project banner" width="500">
+<div align="center">
+  <img src="assets/banner.png" alt="Project banner" width="500">
+</div>
 
 ## Installation
 
