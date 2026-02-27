@@ -31,9 +31,16 @@ Afterwards **get_representations.py** will generate files with the desired repre
 Once these two scripts run successfully, the scripts in the /analysis/ folder can be executed to generate figures like those in the paper. For each script the user can edit the list of models that they want to analyze.
 
 ## Citation
-If you use this code please cite our paper:
 
-> Beshkov, K., & Malthe-Sørenssen, A. (2026). Towards Understanding the Shape of Representations in Protein Language Models.  In *International Conference on Learning Representations (ICLR) 2026*.
+
+```bibtex
+@inproceedings{beshkov2026towards,
+  title={Towards Understanding the Shape of Representations in Protein Language Models},
+  author={Beshkov, Kosio and Malthe-S{\o}renssen, Anders},
+  booktitle={International Conference on Learning Representations (ICLR)},
+  year={2026}
+}
+```
 > [https://openreview.net/pdf?id=Dnn8SSBJaY]
 
 ## License
