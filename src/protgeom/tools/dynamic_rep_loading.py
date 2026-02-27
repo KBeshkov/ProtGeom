@@ -14,7 +14,7 @@ def load_representations(model_name, layer):
     reps = []
     for file_ in model_files:
         print(file_)
-        with open(filepath + file_, 'rb') as handle:
+        with open(filepath / file_, 'rb') as handle:
             model_reps = pickle.load(handle)
             reps.append(model_reps[layer])
         del model_reps
