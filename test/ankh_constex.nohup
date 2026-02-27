@@ -1,85 +1,0 @@
-nohup: ignoring input
-Starting predictions
-  0%|          | 0/49 [00:00<?, ?it/s]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: divide by zero encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
-  2%|▏         | 1/49 [04:30<3:36:47, 270.99s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
-  4%|▍         | 2/49 [09:05<3:33:48, 272.94s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
-  6%|▌         | 3/49 [13:36<3:28:34, 272.06s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
-  8%|▊         | 4/49 [18:06<3:23:30, 271.35s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 10%|█         | 5/49 [22:36<3:18:39, 270.91s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 12%|█▏        | 6/49 [27:04<3:13:28, 269.96s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 14%|█▍        | 7/49 [31:35<3:09:05, 270.13s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 16%|█▋        | 8/49 [36:05<3:04:37, 270.19s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 18%|█▊        | 9/49 [40:36<3:00:19, 270.50s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 20%|██        | 10/49 [45:11<2:56:35, 271.67s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 22%|██▏       | 11/49 [49:42<2:51:58, 271.53s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 24%|██▍       | 12/49 [54:16<2:47:52, 272.23s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 27%|██▋       | 13/49 [58:49<2:43:30, 272.52s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 29%|██▊       | 14/49 [1:03:19<2:38:34, 271.83s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 31%|███       | 15/49 [1:07:49<2:33:46, 271.38s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 33%|███▎      | 16/49 [1:12:19<2:28:59, 270.89s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 35%|███▍      | 17/49 [1:16:49<2:24:18, 270.57s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 37%|███▋      | 18/49 [1:21:21<2:19:56, 270.86s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 39%|███▉      | 19/49 [1:25:52<2:15:33, 271.13s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 41%|████      | 20/49 [1:30:25<2:11:14, 271.55s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
-/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:86: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_open_warning`). Consider using `matplotlib.pyplot.close()`.
-  fig, ax = plt.subplots(figsize=(6, 6))
- 43%|████▎     | 21/49 [1:34:56<2:06:43, 271.56s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 45%|████▍     | 22/49 [1:39:30<2:02:28, 272.16s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 47%|████▋     | 23/49 [1:43:58<1:57:22, 270.87s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 49%|████▉     | 24/49 [1:48:27<1:52:38, 270.35s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 51%|█████     | 25/49 [1:52:54<1:47:46, 269.45s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 53%|█████▎    | 26/49 [1:57:23<1:43:10, 269.14s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 55%|█████▌    | 27/49 [2:01:55<1:39:00, 270.03s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 57%|█████▋    | 28/49 [2:06:19<1:33:54, 268.33s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 59%|█████▉    | 29/49 [2:10:49<1:29:38, 268.93s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 61%|██████    | 30/49 [2:15:19<1:25:13, 269.15s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 63%|██████▎   | 31/49 [2:19:49<1:20:49, 269.40s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 65%|██████▌   | 32/49 [2:24:20<1:16:27, 269.83s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 67%|██████▋   | 33/49 [2:28:51<1:12:02, 270.17s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 69%|██████▉   | 34/49 [2:33:17<1:07:14, 268.98s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 71%|███████▏  | 35/49 [2:37:44<1:02:37, 268.37s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 73%|███████▎  | 36/49 [2:42:14<58:16, 268.96s/it]  /home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 76%|███████▌  | 37/49 [2:46:46<53:55, 269.61s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 78%|███████▊  | 38/49 [2:51:15<49:24, 269.54s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 80%|███████▉  | 39/49 [2:55:44<44:54, 269.41s/it]/home/users/constb/Code/ProtGeom/test/compare_context_wstruct.py:80: RuntimeWarning: invalid value encountered in divide
-  struct_sim = np.nanmin(ham_array/rand_array,0)
- 82%|████████▏ | 40/49 [3:00:18<40:37, 270.84s/it]

@@ -1,12 +1,0 @@
-nohup: ignoring input
-  0%|          | 0/12 [00:00<?, ?it/s]  8%|▊         | 1/12 [06:32<1:11:59, 392.71s/it] 17%|█▋        | 2/12 [13:04<1:05:22, 392.30s/it] 25%|██▌       | 3/12 [19:34<58:40, 391.14s/it]   33%|███▎      | 4/12 [26:20<52:55, 396.92s/it] 42%|████▏     | 5/12 [33:12<46:56, 402.31s/it] 50%|█████     | 6/12 [40:08<40:43, 407.24s/it] 58%|█████▊    | 7/12 [46:59<34:01, 408.34s/it] 67%|██████▋   | 8/12 [53:49<27:16, 409.01s/it] 75%|███████▌  | 9/12 [1:00:40<20:28, 409.40s/it] 83%|████████▎ | 10/12 [1:07:24<13:35, 407.68s/it] 92%|█████████▏| 11/12 [1:14:09<06:46, 406.87s/it]100%|██████████| 12/12 [1:20:59<00:00, 407.81s/it]100%|██████████| 12/12 [1:20:59<00:00, 404.92s/it]
-  0%|          | 0/12 [00:00<?, ?it/s]  0%|          | 0/12 [00:00<?, ?it/s]
-Process Process-1:
-Traceback (most recent call last):
-  File "/home/users/constb/miniconda3/envs/protein_generation/lib/python3.9/multiprocessing/process.py", line 315, in _bootstrap
-    self.run()
-  File "/home/users/constb/miniconda3/envs/protein_generation/lib/python3.9/multiprocessing/process.py", line 108, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/users/constb/Code/ProtGeom/test/compare_shape_by_class.py", line 56, in run_model
-    new_shape_space = ShapeAnalysis(res=n_res[n],spline_order=sp_order[n],id=n*100+layer*10 + ix)
-IndexError: list index out of range
