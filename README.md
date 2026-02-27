@@ -1,4 +1,4 @@
-![Project banner](assets/banner.png)
+<img src="assets/banner.png" alt="Project banner" width="500">
 
 ## Installation
 
