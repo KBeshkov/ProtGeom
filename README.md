@@ -1,3 +1,5 @@
+![Project banner](assets/banner.png)
+
 ## Installation
 
 ### Prerequisites
