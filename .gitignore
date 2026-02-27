@@ -1,3 +1,12 @@
 .DS_Store
+# Ignore all files inside subfolders of data
+data/**/*.*/
+!data/**/.gitkeep
+# --- Generated Python Packages ---
+*.egg-info/
+build/
+dist/
+
+#Environment
 .env
-.env.local
+

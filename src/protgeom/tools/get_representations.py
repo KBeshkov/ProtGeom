@@ -65,12 +65,12 @@ def run_model(model,model_name='none'):
                 except:
                     continue
         count += 1
-    #with open('../data/reps/coords_space.pickle', 'wb') as f:
-    #    pickle.dump(coords_space, f)
-        with open(root_dir/"reps"/f"coords_esm_space_{model_name}_{sub}.pickle", 'wb') as f:
+    with open(root_dir/"data"/"reps"/"coords_space.pickle", 'wb') as f:
+        pickle.dump(coords_space, f)
+        with open(root_dir/"data"/"reps"/f"coords_esm_space_{model_name}_{sub}.pickle", 'wb') as f:
             pickle.dump(coords_esm_space, f)        
-    #with open('../data/reps/prot_labels.pickle','wb') as f:
-     #   pickle.dump(prot_labels, f)
+    with open(root_dir/"data"/"reps"/"prot_labels.pickle",'wb') as f:
+        pickle.dump(prot_labels, f)
 
 if __name__=="__main__":
     processes = []

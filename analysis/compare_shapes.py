@@ -15,12 +15,12 @@ prot_dir = '../data/pdbs/'
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
 
-n_res = [1000,1000,500,1500]
-sp_order = [2,3,2,2]
+n_res = [1000]#,1000,500,1500]
+sp_order = [2]#,3,2,2]
 #SA = ShapeAnalysis(res=n_res,spline_order=sp_order,id=0)
-model_names = ['esm2_t12_35M_UR50D','esm2_t12_35M_UR50D','esm2_t12_35M_UR50D','esm2_t12_35M_UR50D']#,'esm2_t12_35M_UR50D',
+model_names = ['esm2_t6_8M_UR50D']#['esm2_t12_35M_UR50D','esm2_t12_35M_UR50D','esm2_t12_35M_UR50D','esm2_t12_35M_UR50D']#,'esm2_t12_35M_UR50D',
                #'esm2_t30_150M_UR50D']#,'esm2_t33_650M_UR50D']
-models = [esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D]#, esm.pretrained.esm2_t12_35M_UR50D,
+models = [esm.pretrained.esm2_t6_8M_UR50D]#,esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,esm.pretrained.esm2_t12_35M_UR50D]#, esm.pretrained.esm2_t12_35M_UR50D,
           #esm.pretrained.esm2_t30_150M_UR50D]#,esm.pretrained.esm2_t33_650M_UR50D]
 dmats = [[] for _ in range(len(models))]
 frechet_radii = [[] for _ in range(len(models))]
@@ -44,7 +44,7 @@ def run_model(placeholder=0):
         effective_dim_coords = effective_dim_SRV(coords_space, SA)
         frechet_radius_coords = frechet_radius(coords_space, SA)[1]
         n_layers = mod()[0].num_layers
-        with open('../data/reps/coords_esm_space_'+model_names[n]+'_.pickle','rb') as f:
+        with open('../data/reps/coords_esm_space_'+model_names[n]+'_k.pickle','rb') as f:
             coords_esm_space = pickle.load(f)
         #coords_esm_space = [[] for i in range(n_layers)]
         #dmats[n] = [np.zeros([len(prot_labels),len(prot_labels)]) for _ in range(n_layers)]

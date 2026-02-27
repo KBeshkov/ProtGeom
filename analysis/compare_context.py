@@ -14,9 +14,9 @@ prot_dir = '../data/pdbs/'
 subfolders =  next(walk(prot_dir))[1]
 subfolders.sort()
 
-model_names = ['esm2_t33_650M_UR50D']#['esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
+model_names = ['esm2_t6_8M_UR50D']#['esm2_t6_8M_UR50D','esm2_t12_35M_UR50D',
               # 'esm2_t30_150M_UR50D']#,'esm2_t33_650M_UR50D']
-models = [esm.pretrained.esm2_t33_650M_UR50D]# [esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
+models = [esm.pretrained.esm2_t6_8M_UR50D]# [esm.pretrained.esm2_t6_8M_UR50D,esm.pretrained.esm2_t12_35M_UR50D,
          # esm.pretrained.esm2_t30_150M_UR50D]#,esm.pretrained.esm2_t33_650M_UR50D]
 with open('../data/reps/coords_space.pickle','rb') as f:
     coords_space = pickle.load(f)
@@ -31,7 +31,7 @@ print('Starting predictions')
 def run_model(placeholder=0):
     for n, mod in enumerate(models):
         n_layers = mod()[0].num_layers
-        with open('../data/reps/coords_esm_space_esm2_t33_650M_UR50D_k.pickle','rb') as f:
+        with open('../data/reps/coords_esm_space_'+model_names[n]+'_k.pickle','rb') as f:
             coords_esm_space = pickle.load(f)
         means_tensor = np.zeros([len(prot_type_names),n_layers,len(epsilons)])
         for layer in tqdm(range(n_layers)):
@@ -43,7 +43,7 @@ def run_model(placeholder=0):
             for idx in prot_types:
                 new_prot_class = []
                 new_esm_class = []
-              for i in range(len(prot_labels)):
+                for i in range(len(prot_labels)):
                     if (prot_labels==idx)[i]:
                         new_prot_class.append(coords_space[i])
                         new_esm_class.append(coords_esm_space[layer][i])
