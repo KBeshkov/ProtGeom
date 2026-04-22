@@ -43,7 +43,7 @@ def run_model(placeholder=0):
         SA.init_shape_space(coords_space)
         effective_dim_coords = effective_dim_SRV(coords_space, SA)
         frechet_radius_coords = frechet_radius(coords_space, SA)[1]
-        n_layers = mod()[0].num_layers
+        n_layers = len(coords_esm_space)
         with open('../data/reps/coords_esm_space_'+model_names[n]+'_k.pickle','rb') as f:
             coords_esm_space = pickle.load(f)
         #coords_esm_space = [[] for i in range(n_layers)]
