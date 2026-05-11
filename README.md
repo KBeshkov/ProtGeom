@@ -28,7 +28,7 @@ We have used a [Miniconda](https://docs.conda.io/en/latest/miniconda.html) envir
 
 ## Usage
 
-In order to create folders and the pdb files run **sample_scop_proteins.py** from the /tools/ folder. 
+In order to create folders and the pdb files run **sample_scop_proteins.py** from the src/protgeom/tools/ folder or use the exact list of proteins specified in data/**sampled_proteins.tsv**.
 
 Afterwards **get_representations.py** will generate files with the desired representations in the /data/ folder.
 
